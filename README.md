@@ -37,7 +37,7 @@ function my_custom_sale_date_label() {
 
 ## Contribute
 
-Contributions are always welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-woocommerce-show-sale-price-date/pulls) and create an issue or open a pull request.
+Contributions are always welcome. Simply [create a new issue](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/new) or [open a pull request](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/compare).
 
 ## Installation
 

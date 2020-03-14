@@ -1,5 +1,5 @@
 {
-  "name": "smntcs-woocommerce-show-sale-price-date",
+  "name": "smntcs-show-sale-price-date-for-woocommerce",
   "version": "1.0.0",
   "description": "Show WooCommerce sale prices date on shopping page",
   "author": "Niels Lange",
@@ -9,13 +9,13 @@
     "Plugin",
     "SMNTCS WooCommerce Show Sale Price Date"
   ],
-  "homepage": "https://github.com/nielslange/smntcs-woocommerce-show-sale-price-date#readme",
+  "homepage": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nielslange/smntcs-woocommerce-show-sale-price-date.git"
+    "url": "git+https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce.git"
   },
   "bugs": {
-    "web": "https://github.com/nielslange/smntcs-woocommerce-show-sale-price-date/issues"
+    "web": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues"
   },
   "devDependencies": {
     "archiver": "^3.1.1"

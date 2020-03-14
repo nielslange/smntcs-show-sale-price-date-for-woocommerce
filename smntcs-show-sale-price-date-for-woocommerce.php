@@ -1,19 +1,19 @@
 <?php
 /**
- * Plugin Name: SMNTCS WooCommerce Show Sale Price Date
+ * Plugin Name: SMNTCS Show Sale Price Date for WooCommerce
  * Plugin URI:
  * Description: Show WooCommerce sale prices date on shopping page
  * Author: Niels Lange
  * Author URI: https://nielslange.de/
  * Version: 1.0
- * Text Domain: smntcs-woocommerce-show-sale-price-date
+ * Text Domain: smntcs-show-sale-price-date-for-woocommerce
  * Domain Path: /languages
  * License: GPL3+
  * License URI: http://www.gnu.org/licenses/gpl.txt
  *
  * @category   Plugin
  * @package    WordPress
- * @subpackage SMNTCS WooCommerce Show Sale Price Date
+ * @subpackage SMNTCS Show Sale Price Date for WooCommerce
  * @author     Niels Lange <info@nielslange.de>
  * @license    http://www.gnu.org/licenses/gpl.txt GNU General Public License version 3
  */

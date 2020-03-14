@@ -6,14 +6,14 @@ var fs = require( 'fs' );
 var archiver = require( 'archiver' );
 
 // list of files to add
-var files = [ 'smntcs-woocommerce-show-sale-price-date.php', 'README.txt' ];
+var files = [ 'smntcs-show-sale-price-date-for-woocommerce.php', 'README.txt' ];
 
 // list of directories to add
 var directories = [ ];
 
 // create a file to stream archive data to.
 var version	= '1.0';
-var output = fs.createWriteStream( __dirname + '/dist/smntcs-woocommerce-show-sale-price-date-' + version + '.zip' );
+var output = fs.createWriteStream( __dirname + '/dist/smntcs-show-sale-price-date-for-woocommerce-' + version + '.zip' );
 var archive = archiver( 'zip', { zlib: { level: 9 } } );
 
 // listen for all archive data to be written

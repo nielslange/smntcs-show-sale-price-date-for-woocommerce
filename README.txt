@@ -1,4 +1,4 @@
-=== SMNTCS WooCommerce Quantity Buttons ===
+=== SMNTCS Show Sale Price Date for WooCommerce ===
 
 Contributors: nielslange
 Tags: WooCommerce, Sale Price End Date

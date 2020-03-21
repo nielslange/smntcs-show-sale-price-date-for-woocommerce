@@ -52,6 +52,7 @@ Contributions are always welcome. Simply [create a new issue](https://github.com
 
 ### 1.1
 * [Add build tools](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/1)
+* [Add release workflow and assets](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/2)
 
 ### 1.0
 * Initial release

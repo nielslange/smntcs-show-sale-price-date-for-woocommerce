@@ -18,6 +18,7 @@
     "web": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues"
   },
   "devDependencies": {
+    "@wordpress/scripts": "^5.0.0",
     "archiver": "^3.1.1"
   },
   "scripts": {

@@ -8,6 +8,7 @@
 [![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
 [![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
 [![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
+![Deploy to WordPress.org](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/workflows/Deploy%20to%20WordPress.org/badge.svg)
 
 Show WooCommerce sale prices date on shopping page.
 

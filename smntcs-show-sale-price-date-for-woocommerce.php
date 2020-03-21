@@ -18,21 +18,21 @@
  * @license    http://www.gnu.org/licenses/gpl.txt GNU General Public License version 3
  */
 
- /**
-  * Add sale date end date to product page.
-  *
-  * @param String $price The price string.
-  * @param Object $product The product object.
-  * @return String The formated price.
-  */
+/**
+ * Add sale date end date to product page.
+ *
+ * @param String $price The price string.
+ * @param Object $product The product object.
+ * @return String The formated price.
+ */
 function smntcs_woocommerce_get_price_html( $price, $product ) {
 	global $post;
 	$sales_price_to = get_post_meta( $post->ID, '_sale_price_dates_to', true );
 	if ( is_single() && '' !== $sales_price_to ) {
 		$format = apply_filters( 'sale_date_format', get_option( 'date_format' ) );
 		$label  = apply_filters( 'sale_date_label', 'Discounted until' );
-        $date   = wp_date( $format, $sales_price_to );
-        return str_replace( '</ins>', ' </ins><small>(' . esc_html( $label ) . ' ' . esc_html( $date ) . ')</small>', $price );
+		$date   = wp_date( $format, $sales_price_to );
+		return str_replace( '</ins>', ' </ins><small>(' . esc_html( $label ) . ' ' . esc_html( $date ) . ')</small>', $price );
 	} else {
 		return apply_filters( 'woocommerce_get_price', $price );
 	}

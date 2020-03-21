@@ -5,9 +5,12 @@
  * Description: Show WooCommerce sale prices date on shopping page
  * Author: Niels Lange
  * Author URI: https://nielslange.de/
- * Version: 1.0
  * Text Domain: smntcs-show-sale-price-date-for-woocommerce
  * Domain Path: /languages
+ * Version: 1.1
+ * Requires at least: 5.3
+ * Tested up to: 5.4
+ * Requires PHP: 5.6
  * License: GPL3+
  * License URI: http://www.gnu.org/licenses/gpl.txt
  *

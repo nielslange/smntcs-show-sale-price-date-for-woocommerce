@@ -1,19 +1,28 @@
 # SMNTCS Show Sale Price Date for WooCommerce
 
-Contributors: nielslange  
-Tags: WooCommerce, Sale Price End Date  
-Version: 1.0  
-Requires at least: 5.3  
-Tested up to: 5.4  
-Requires PHP: 5.6  
-License: GPL3+  
-License URI: http://www.gnu.org/licenses/gpl.html  
+[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level)
+[![Build Status](https://api.travis-ci.com/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg?branch=master)](https://api.travis-ci.com/nielslange/smntcs-show-sale-price-date-for-woocommerce)
+[![GPLv3 License](https://img.shields.io/github/license/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)](https://www.gnu.org/licenses/gpl.html)
+[![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/wp-badge.svg)](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/latest)
+[![Compatible to PHP version](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/php-badge.svg)](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/latest)
+[![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
+[![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
+[![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)](https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/)
 
 Show WooCommerce sale prices date on shopping page.
 
 ## Description
 
 Show WooCommerce sale prices date on shopping page.
+
+## Plugin page
+
+You can find the plugin on https://wordpress.org/plugins/smntcs-show-sale-price-date-for-woocommerce/.
+
+## Installation
+
+1. Upload 'smntcs-woocommerce-show-sale-price-date' to the '/wp-content/plugins/' directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 ## Filter
 
@@ -39,16 +48,10 @@ function my_custom_sale_date_label() {
 
 Contributions are always welcome. Simply [create a new issue](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/new) or [open a pull request](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/compare).
 
-## Installation
-
-1. Upload 'smntcs-woocommerce-show-sale-price-date' to the '/wp-content/plugins/' directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-
 ## Change log
 
-### 1.1 (2020.03.21)
+### 1.1
 * [Add build tools](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/1)
 
-### 1.0 (2020.03.13)
-
+### 1.0
 * Initial release

@@ -2,7 +2,7 @@
 
 Contributors: nielslange
 Tags: WooCommerce, Sale Price End Date
-Version: 1.0
+Version: 1.1
 Requires at least: 5.3
 Tested up to: 5.4
 Requires PHP: 5.6

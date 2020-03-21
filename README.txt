@@ -1,7 +1,7 @@
 === SMNTCS Show Sale Price Date for WooCommerce ===
 
 Contributors: nielslange
-Tags: WooCommerce, Sale Price End Date
+Tags: WooCommerce, Sale, Price
 Version: 1.2
 Requires at least: 5.3
 Tested up to: 5.4
@@ -43,7 +43,9 @@ Contributions are always welcome. Simply head over to [Github](https://github.co
 == Change log ==
 
 = 1.2 =
+* [Add GPL3 license](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/11)
 * [Format filter on README.txt in pseudo-markdown](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/9)
+* [Update screenshot](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/10)
 
 = 1.1 =
 * [Add build tools](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/1)

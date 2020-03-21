@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: SMNTCS Show Sale Price Date for WooCommerce
- * Plugin URI:
+ * Plugin URI: https://github.com/nielslange/smntcs-woocommerce-quantity-buttons
  * Description: Show WooCommerce sale prices date on shopping page
  * Author: Niels Lange
  * Author URI: https://nielslange.de/
  * Text Domain: smntcs-show-sale-price-date-for-woocommerce
  * Domain Path: /languages
- * Version: 1.1
+ * Version: 1.2
  * Requires at least: 5.3
  * Tested up to: 5.4
  * Requires PHP: 5.6

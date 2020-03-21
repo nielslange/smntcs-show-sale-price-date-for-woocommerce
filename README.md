@@ -51,6 +51,9 @@ Contributions are always welcome. Simply [create a new issue](https://github.com
 
 ## Change log
 
+### 1.2
+* [Format filter on README.txt in pseudo-markdown](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/9)
+
 ### 1.1
 * [Add build tools](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/1)
 * [Add release workflow and assets](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/2)

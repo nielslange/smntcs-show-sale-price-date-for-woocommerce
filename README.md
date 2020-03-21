@@ -46,6 +46,9 @@ Contributions are always welcome. Simply [create a new issue](https://github.com
 
 ## Change log
 
-**1.0**
+### 1.1 (2020.03.21)
+* [Add build tools](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/1)
+
+### 1.0 (2020.03.13)
 
 * Initial release

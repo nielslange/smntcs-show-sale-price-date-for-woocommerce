@@ -27,19 +27,17 @@
  * @return void
  * @since 1.3.0
  */
-add_action(
-	'admin_notices',
-	function () {
-		global $woocommerce;
+function smntcs_sale_price_admin_notices() {
+	global $woocommerce;
 
-		if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
-			$class   = 'notice notice-warning is-dismissible';
-			$message = __( 'SMNTCS Show Sale Price Date for WooCommerce requires at least WooCommerce 3.0', 'smntcs-show-sale-price-date-for-woocommerce' );
+	if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
+		$class   = 'notice notice-warning is-dismissible';
+		$message = __( 'SMNTCS Show Sale Price Date for WooCommerce requires at least WooCommerce 3.0', 'smntcs-show-sale-price-date-for-woocommerce' );
 
-			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-		}
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 	}
-);
+}
+add_action( 'admin_notices', 'smntcs_sale_price_admin_notices' );
 
 /**
  * Load text domain.
@@ -51,6 +49,22 @@ function smntcs_sale_price_load_textdomain() {
 	load_plugin_textdomain( 'smntcs-show-sale-price-date-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'smntcs_sale_price_load_textdomain' );
+
+/**
+ * Add settings link on plugin page.
+ *
+ * @param array $links The original array with customizer links.
+ * @return array $links The updated array with customizer links.
+ * @since 1.3.0
+ */
+function smntcs_sale_price_settings_link( $links ) {
+	$admin_url     = admin_url( 'customize.php?autofocus[section]=smntcs_sale_price_section' );
+	$settings_link = '<a href="' . $admin_url . '">' . __( 'Settings', 'smntcs-show-sale-price-date-for-woocommerce' ) . '</a>';
+	array_unshift( $links, $settings_link );
+
+	return $links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'smntcs_sale_price_settings_link' );
 
 /**
  * Add sale date end date to product page.
@@ -67,7 +81,12 @@ function smntcs_woocommerce_get_price_html( $price, $product ) {
 		$format = apply_filters( 'sale_date_format', get_option( 'date_format' ) );
 		$label  = apply_filters( 'sale_date_label', get_option( 'smntcs_sale_price_label', 'Discounted until' ) );
 		$date   = wp_date( $format, $sales_price_to );
-		return str_replace( '</ins>', '</ins> <small>(' . esc_html( $label ) . ' ' . esc_html( $date ) . ')</small>', $price );
+
+		if ( $label ) {
+			return str_replace( '</ins>', '</ins> <small>(' . esc_html( $label ) . ' ' . esc_html( $date ) . ')</small>', $price );
+		} else {
+			return str_replace( '</ins>', '</ins> <small>(' . esc_html( $date ) . ')</small>', $price );
+		}
 	} else {
 		return apply_filters( 'woocommerce_get_price', $price );
 	}
@@ -111,9 +130,12 @@ function smntcs_sale_price_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'smntcs_sale_price_label',
 		array(
-			'label'   => __( 'Label', 'smntcs-show-sale-price-date-for-woocommerce' ),
-			'section' => 'smntcs_sale_price_section',
-			'type'    => 'text',
+			'label'       => __( 'Label', 'smntcs-show-sale-price-date-for-woocommerce' ),
+			'section'     => 'smntcs_sale_price_section',
+			'type'        => 'text',
+			'input_attrs' => array(
+				'placeholder' => __( 'Discounted until', 'smntcs-show-sale-price-date-for-woocommerce' ),
+			),
 		)
 	);
 }

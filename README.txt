@@ -4,8 +4,10 @@ Contributors: nielslange
 Tags: WooCommerce, Sale, Price
 Version: 1.2
 Requires at least: 5.3
-Tested up to: 5.4
 Requires PHP: 5.6
+Tested up to: 5.4
+WC requires at least: 3.0
+WC tested up to: 4.1
 License: GPL3+
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -33,7 +35,7 @@ Show WooCommerce sale prices date on shopping page
 
 == Contribute ==
 
-Contributions are always welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-woocommerce-show-sale-price-date/pulls) and create an issue or open a pull request.
+Contributions are always welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce) and create an issue or open a pull request.
 
 == Installation ==
 

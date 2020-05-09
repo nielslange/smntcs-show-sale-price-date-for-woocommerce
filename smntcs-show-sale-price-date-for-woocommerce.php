@@ -27,19 +27,17 @@
  * @return void
  * @since 1.3.0
  */
-add_action(
-	'admin_notices',
-	function () {
-		global $woocommerce;
+function smntcs_sale_price_admin_notices() {
+	global $woocommerce;
 
-		if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
-			$class   = 'notice notice-warning is-dismissible';
-			$message = __( 'SMNTCS Show Sale Price Date for WooCommerce requires at least WooCommerce 3.0', 'smntcs-show-sale-price-date-for-woocommerce' );
+	if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
+		$class   = 'notice notice-warning is-dismissible';
+		$message = __( 'SMNTCS Show Sale Price Date for WooCommerce requires at least WooCommerce 3.0', 'smntcs-show-sale-price-date-for-woocommerce' );
 
-			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-		}
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 	}
-);
+}
+add_action( 'admin_notices', 'smntcs_sale_price_admin_notices' );
 
 /**
  * Load text domain.
@@ -132,12 +130,12 @@ function smntcs_sale_price_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'smntcs_sale_price_label',
 		array(
-			'label'   => __( 'Label', 'smntcs-show-sale-price-date-for-woocommerce' ),
-			'section' => 'smntcs_sale_price_section',
-			'type'    => 'text',
+			'label'       => __( 'Label', 'smntcs-show-sale-price-date-for-woocommerce' ),
+			'section'     => 'smntcs_sale_price_section',
+			'type'        => 'text',
 			'input_attrs' => array(
 				'placeholder' => __( 'Discounted until', 'smntcs-show-sale-price-date-for-woocommerce' ),
-		)
+			),
 		)
 	);
 }

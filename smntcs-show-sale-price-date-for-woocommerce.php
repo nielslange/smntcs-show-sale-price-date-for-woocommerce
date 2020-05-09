@@ -22,6 +22,26 @@
  */
 
 /**
+ * Show warning if WooCommerce is not active or WooCommerce version < 3.0
+ *
+ * @return void
+ * @since 1.3.0
+ */
+add_action(
+	'admin_notices',
+	function () {
+		global $woocommerce;
+
+		if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
+			$class   = 'notice notice-warning is-dismissible';
+			$message = __( 'SMNTCS Show Sale Price Date for WooCommerce requires at least WooCommerce 3.0', 'smntcs-show-sale-price-date-for-woocommerce' );
+
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+		}
+	}
+);
+
+/**
  * Load text domain.
  *
  * @return void

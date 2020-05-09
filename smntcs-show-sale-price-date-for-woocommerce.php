@@ -59,7 +59,7 @@ add_action( 'plugins_loaded', 'smntcs_sale_price_load_textdomain' );
  */
 function smntcs_sale_price_settings_link( $links ) {
 	$admin_url     = admin_url( 'customize.php?autofocus[section]=smntcs_sale_price_section' );
-	$settings_link = '<a href="' . $admin_url . '">' . __( 'Settings', 'smntcs-google-webmaster-tools' ) . '</a>';
+	$settings_link = '<a href="' . $admin_url . '">' . __( 'Settings', 'smntcs-show-sale-price-date-for-woocommerce' ) . '</a>';
 	array_unshift( $links, $settings_link );
 
 	return $links;

@@ -7,7 +7,7 @@
  * Author URI: https://nielslange.de/
  * Text Domain: smntcs-show-sale-price-date-for-woocommerce
  * Domain Path: /languages
- * Version: 1.2
+ * Version: 1.3
  * Requires at least: 5.3
  * Requires PHP: 5.6
  * Tested up to: 5.4

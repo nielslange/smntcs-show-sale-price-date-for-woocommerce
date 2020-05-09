@@ -2,7 +2,7 @@
 
 Contributors: nielslange
 Tags: WooCommerce, Sale, Price
-Version: 1.2
+Version: 1.3
 Requires at least: 5.3
 Requires PHP: 5.6
 Tested up to: 5.4
@@ -43,6 +43,12 @@ Contributions are always welcome. Simply head over to [Github](https://github.co
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Change log ==
+
+= 1.3 =
+* [Add info that WooCommerce plugin is required](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/19)
+* [Add settings link to plugin page](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/18)
+* [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/15)
+* [Make label editable via customizer](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/17)
 
 = 1.2 =
 * [Add GPL3 license](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/11)

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: SMNTCS Show Sale Price Date for WooCommerce
- * Plugin URI: https://github.com/nielslange/smntcs-woocommerce-quantity-buttons
+ * Plugin URI: https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce
  * Description: Show WooCommerce sale prices date on shopping page
  * Author: Niels Lange
  * Author URI: https://nielslange.de/
@@ -13,15 +13,18 @@
  * Tested up to: 5.4
  * WC requires at least: 3.0
  * WC tested up to: 4.1
- * License: GPL3+
- * License URI: http://www.gnu.org/licenses/gpl.txt
+ * License: GPLv2+
+ * License URI: https://opensource.org/licenses/GPL-2.0
  *
  * @category   Plugin
  * @package    WordPress
  * @subpackage SMNTCS Show Sale Price Date for WooCommerce
  * @author     Niels Lange <info@nielslange.de>
- * @license    http://www.gnu.org/licenses/gpl.txt GNU General Public License version 3
+ * @license    https://opensource.org/licenses/GPL-2.0 GNU General Public License version 2
  */
+
+// Avoid direct plugin access
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Show warning if WooCommerce is not active or WooCommerce version < 3.0

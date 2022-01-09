@@ -1,28 +1,27 @@
 {
-  "name": "smntcs-show-sale-price-date-for-woocommerce",
-  "version": "1.0.0",
-  "description": "Show WooCommerce sale prices date on shopping page",
-  "author": "Niels Lange",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "WordPress",
-    "Plugin",
-    "SMNTCS WooCommerce Show Sale Price Date"
-  ],
-  "homepage": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce.git"
-  },
-  "bugs": {
-    "web": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^5.0.0",
-    "archiver": "^3.1.1"
-  },
-  "scripts": {
-    "archive": "node archive.js",
-    "lint:pkg-json": "wp-scripts lint-pkg-json"
-  }
+	"name": "smntcs-show-sale-price-date-for-woocommerce",
+	"description": "Show WooCommerce sale prices date on shopping page",
+	"author": "Niels Lange",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Plugin",
+		"SMNTCS WooCommerce Show Sale Price Date"
+	],
+	"homepage": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce.git"
+	},
+	"bugs": {
+		"web": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^5.0.0",
+		"archiver": "^3.1.1"
+	},
+	"scripts": {
+		"archive": "node archive.js",
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
+	}
 }

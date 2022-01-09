@@ -1,14 +1,14 @@
 {
 	"name": "nielslange/smntcs-show-sale-price-date-for-woocommerce",
-	"type": "plugin",
 	"description": "Show WooCommerce sale prices date on shopping page",
+	"homepage": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce",
+	"type": "wordpress-plugin",
 	"keywords": [
 		"WordPress",
 		"Plugin",
 		"SMNTCS SMNTCS Show Sale Price Date for WooCommerce"
 	],
-	"homepage": "https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce",
-	"license": "GPL-3.0-or-later",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Contributors",

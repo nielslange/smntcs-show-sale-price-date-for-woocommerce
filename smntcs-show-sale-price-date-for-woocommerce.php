@@ -23,7 +23,7 @@
  * @license    https://opensource.org/licenses/GPL-2.0 GNU General Public License version 2
  */
 
-// Avoid direct plugin access
+// Avoid direct plugin access.
 defined( 'ABSPATH' ) || exit;
 
 /**

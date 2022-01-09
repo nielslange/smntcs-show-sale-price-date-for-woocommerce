@@ -6,13 +6,12 @@
  * Author: Niels Lange
  * Author URI: https://nielslange.de/
  * Text Domain: smntcs-show-sale-price-date-for-woocommerce
- * Domain Path: /languages
- * Version: 1.3
+ * Version: 1.4
+ * Tested up to: 5.8
  * Requires at least: 5.3
  * Requires PHP: 5.6
- * Tested up to: 5.4
  * WC requires at least: 3.0
- * WC tested up to: 4.1
+ * WC tested up to: 6.0
  * License: GPLv2+
  * License URI: https://opensource.org/licenses/GPL-2.0
  *
@@ -43,17 +42,6 @@ function smntcs_sale_price_admin_notices() {
 	}
 }
 add_action( 'admin_notices', 'smntcs_sale_price_admin_notices' );
-
-/**
- * Load text domain.
- *
- * @return void
- * @since 1.3.0
- */
-function smntcs_sale_price_load_textdomain() {
-	load_plugin_textdomain( 'smntcs-show-sale-price-date-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'smntcs_sale_price_load_textdomain' );
 
 /**
  * Add settings link on plugin page.

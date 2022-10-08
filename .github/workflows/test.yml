@@ -17,13 +17,13 @@ jobs:
         uses: ramsey/composer-install@v2
 
       - name: Show PHPCS sniffs
-        run: ./vendor/bin/phpcs -i
+        run: npm run phpcs -i
 
       - name: Show PHPCS version
-        run: ./vendor/bin/phpcs --version
+        run: npm run phpcs --version
 
       - name: Run PHP_CodeSniffer
-        run: composer phpcs
+        run: npm run phpcs
 
   PHPLint:
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
         uses: ramsey/composer-install@v2
 
       - name: Show PHPLint version info
-        run: ./vendor/bin/phplint --version
+        run: npm run phplint --version
 
       - name: Run PHPLint
-        run: composer phplint
+        run: npm run phplint

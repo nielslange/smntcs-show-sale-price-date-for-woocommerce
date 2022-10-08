@@ -29,18 +29,18 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-show-sale-price-
 ### Adjust date format:
 
 ```
-add_filter(‘sale_date_format’,’my_custom_sale_date_format’ );
+add_filter( 'sale_date_format', 'my_custom_sale_date_format' );
 function my_custom_sale_date_format() {
-	return “r”;
+	return 'r';
 }
 ```
 
 ### Adjust label:
 
 ```
-add_filter(‘sale_date_label’,’my_custom_sale_date_label’ );
+add_filter( 'sale_date_label', 'my_custom_sale_date_label' );
 function my_custom_sale_date_label() {
-	return “Valid until”;
+	return 'Valid until';
 }
 ```
 
@@ -49,6 +49,11 @@ function my_custom_sale_date_label() {
 Contributions are always welcome. Simply [create a new issue](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/new) or [open a pull request](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/compare).
 
 ## Changelog
+
+### 1.5 (2022.10.08)
+
+- Test up to WC 6.9
+- Test up to WP 6.0
 
 ### 1.4 (2022.01.09)
 

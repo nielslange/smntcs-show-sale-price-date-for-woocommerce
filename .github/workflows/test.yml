@@ -1,6 +1,6 @@
 name: Run PHPCS and PHPLint
 
-on: pull_request
+on: [pull_request]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -9,7 +9,6 @@ concurrency:
 jobs:
   PHPCS:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,7 +27,6 @@ jobs:
 
   PHPLint:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

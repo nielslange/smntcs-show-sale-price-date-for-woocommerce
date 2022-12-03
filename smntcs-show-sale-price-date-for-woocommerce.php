@@ -12,8 +12,8 @@
  * WC tested up to:      6.9
  * Author:               Niels Lange
  * Author URI:           https://nielslange.com/
- * License:              GPLv3+
- * License URI:          https://www.gnu.org/licenses/gpl-3.0.en.html
+ * License:              GPL v2 or later
+ * License URI:          https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package SMNTCS_Show_Sale_Price_Date_For_WC
  */
@@ -34,12 +34,12 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	public static function init() {
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'add_plugin_settings_link' ) );
-		add_filter( 'woocommerce_get_price_html', array( __CLASS__, 'get_price_html' ), 100, 2 );
+		add_filter( 'woocommerce_get_price_html', array( __CLASS__, 'get_price_html' ), 10, 2 );
 		add_action( 'customize_register', array( __CLASS__, 'enhance_customizer' ) );
 	}
 
 	/**
-	 * Show warning if WooCommerce is not active or WooCommerce version < 3.0
+	 * Show warning if WooCommerce is not active or WooCommerce version <small 3.0
 	 *
 	 * @return void
 	 * @since 1.3.0
@@ -71,7 +71,7 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	}
 
 	/**
-	 * Add sale date end date to product page.
+	 * Add sale end dates to single product page.
 	 *
 	 * @param String $price The price string.
 	 * @param Object $product The product object.
@@ -79,8 +79,24 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	 * @since 1.0.0
 	 */
 	public static function get_price_html( $price, $product ) {
-		global $post;
-		$sales_price_to = get_post_meta( $post->ID, '_sale_price_dates_to', true );
+		if ( $product->is_type( 'simple' ) ) {
+			$sales_price_to = strtotime( $product->get_date_on_sale_to() );
+		}
+
+		if ( $product->is_type( 'variable' ) ) {
+			$sale_dates    = array();
+			$variation_ids = $product->get_visible_children();
+			foreach ( $variation_ids as $variation_id ) {
+				$variation = wc_get_product( $variation_id );
+
+				if ( $variation->is_on_sale() ) {
+					array_push( $sale_dates, strtotime( $variation->get_date_on_sale_to() ) );
+				}
+			}
+			rsort( $sale_dates );
+			$sales_price_to = $sale_dates[0];
+		}
+
 		if ( is_single() && '' !== $sales_price_to ) {
 			$format = apply_filters( 'sale_date_format', get_option( 'date_format' ) );
 			$label  = apply_filters( 'sale_date_label', get_option( 'smntcs_sale_price_label', 'Discounted until' ) );
@@ -92,7 +108,7 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 				return str_replace( '</ins>', '</ins> <small>(' . esc_html( $date ) . ')</small>', $price );
 			}
 		} else {
-			return apply_filters( 'woocommerce_get_price', $price );
+			return apply_filters( 'woocommerce_product_get_price', $price );
 		}
 	}
 

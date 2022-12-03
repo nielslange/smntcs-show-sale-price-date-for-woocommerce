@@ -1,15 +1,15 @@
 === SMNTCS Show Sale Price Date for WooCommerce ===
 
-Contributors: 		  nielslange
-Tags: 				  WooCommerce Sale Price
-Version: 			  1.5
-Tested up to: 		  6.0
-Requires at least: 	  5.3
-Requires PHP: 		  5.6
-WC requires at least: 3.0
-WC tested up to: 	  6.9
-License: 			  GPL v2 or later
-License URI: 		  https://www.gnu.org/licenses/gpl-2.0.html
+Contributors: 		  	nielslange
+Tags: 				  	WooCommerce Sale Price
+Stable tag:				1.6
+Tested up to: 		  	6.1
+Requires at least: 	  	5.3
+Requires PHP: 		  	5.6
+WC requires at least: 	3.0
+WC tested up to: 	  	7.1
+License: 			  	GPL v2 or later
+License URI: 		  	https://www.gnu.org/licenses/gpl-2.0.html
 
 Show WooCommerce sale prices date on shopping page.
 
@@ -43,6 +43,12 @@ Contributions are always welcome. Simply head over to [Github](https://github.co
 2. Activate the plugin through the `Plugins` menu in WordPress.
 
 == Change log ==
+
+= 1.6 (2022.12.03) =
+
+- [Add support for variable products](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/58)
+- Test up to WC 7.1
+- Test up to WP 6.1
 
 = 1.5 (2022.10.08) =
 

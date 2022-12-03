@@ -50,6 +50,12 @@ Contributions are always welcome. Simply [create a new issue](https://github.com
 
 ## Changelog
 
+### 1.6 (2022.12.03)
+
+- [Add support for variable products](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/issues/58)
+- Test up to WC 7.1
+- Test up to WP 6.1
+
 ### 1.5 (2022.10.08)
 
 - Test up to WC 6.9

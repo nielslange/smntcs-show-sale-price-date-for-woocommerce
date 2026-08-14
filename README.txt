@@ -2,8 +2,8 @@
 
 Contributors: 		  	nielslange
 Tags: 				  	WooCommerce Sale Price
-Stable tag:				1.8
-Tested up to: 		  	6.7
+Stable tag:				1.9
+Tested up to: 		  	7.0
 Requires at least: 	  	5.3
 Requires PHP: 		  	5.6
 WC requires at least: 	3.0
@@ -41,6 +41,10 @@ Contributions are always welcome. Simply head over to [Github](https://github.co
 2. Activate the plugin through the `Plugins` menu in WordPress.
 
 == Change log ==
+
+= 1.9 (2026.08.14) =
+
+- Test up to WordPress 7.0
 
 = 1.8 (2024.12.31) =
 

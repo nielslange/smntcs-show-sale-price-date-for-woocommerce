@@ -2,13 +2,14 @@
 /**
  * Plugin Name:          SMNTCS Show Sale Price Date for WooCommerce
  * Plugin URI:           https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce
- * Description:          Show WooCommerce sale prices date on shopping page
+ * Description:          Shows the end date of a WooCommerce sale next to the sale price on the product page.
  * Text Domain:          smntcs-show-sale-price-date-for-woocommerce
- * Version:              1.8
+ * Version:              1.9
  * Requires at least:    5.3
- * Requires PHP:         5.6
+ * Requires PHP:         7.4
+ * Requires Plugins:     woocommerce
  * WC requires at least: 3.0
- * WC tested up to:      7.1
+ * WC tested up to:      11.1
  * Author:               Niels Lange
  * Author URI:           https://nielslange.com/
  * License:              GPL v2 or later
@@ -31,10 +32,24 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	 * @since 1.2.0
 	 */
 	public static function init() {
-		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
+		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ), 10, 0 );
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'add_plugin_settings_link' ) );
 		add_filter( 'woocommerce_get_price_html', array( __CLASS__, 'get_price_html' ), 10, 2 );
 		add_action( 'customize_register', array( __CLASS__, 'enhance_customizer' ) );
+		add_action( 'before_woocommerce_init', array( __CLASS__, 'declare_compatibility' ), 10, 0 );
+	}
+
+	/**
+	 * Declare compatibility with WooCommerce features.
+	 *
+	 * @return void
+	 * @since 1.9
+	 */
+	public static function declare_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, true );
+		}
 	}
 
 	/**
@@ -70,45 +85,65 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	}
 
 	/**
-	 * Add sale end dates to single product page.
+	 * Add the sale end date to the price on the single product page.
 	 *
-	 * @param String $price The price string.
-	 * @param Object $product The product object.
-	 * @return String The formated price.
+	 * Only the product that the page is about gets the date, so related and
+	 * up-sell products keep their normal price. Every other price is returned
+	 * unchanged.
+	 *
+	 * @param string     $price   The price HTML.
+	 * @param WC_Product $product The product object.
+	 * @return string The price HTML, with the sale end date when there is one.
 	 * @since 1.0.0
 	 */
 	public static function get_price_html( $price, $product ) {
-		if ( $product->is_type( 'simple' ) ) {
-			$sales_price_to = strtotime( $product->get_date_on_sale_to() );
+		if ( ! $product instanceof WC_Product || ! is_product() || ! $product->is_on_sale() ) {
+			return $price;
 		}
 
-		if ( $product->is_type( 'variable' ) ) {
-			$sale_dates    = array();
-			$variation_ids = $product->get_visible_children();
-			foreach ( $variation_ids as $variation_id ) {
-				$variation = wc_get_product( $variation_id );
+		$queried_id = get_queried_object_id();
+		if ( $product->get_id() !== $queried_id && $product->get_parent_id() !== $queried_id ) {
+			return $price;
+		}
 
-				if ( $variation->is_on_sale() ) {
-					array_push( $sale_dates, strtotime( $variation->get_date_on_sale_to() ) );
+		$timestamp = self::get_sale_end_timestamp( $product );
+		if ( ! $timestamp ) {
+			return $price;
+		}
+
+		$format = apply_filters( 'sale_date_format', get_option( 'date_format' ) );
+		$label  = apply_filters( 'sale_date_label', get_option( 'smntcs_sale_price_label', __( 'Discounted until', 'smntcs-show-sale-price-date-for-woocommerce' ) ) );
+		$date   = wp_date( $format, $timestamp );
+		$text   = $label ? $label . ' ' . $date : $date;
+
+		return str_replace( '</ins>', '</ins> <small class="smntcs-sale-price-date">(' . esc_html( $text ) . ')</small>', $price );
+	}
+
+	/**
+	 * Get the timestamp at which the sale of a product ends.
+	 *
+	 * For variable products this is the latest end date of all variations on sale.
+	 *
+	 * @param WC_Product $product The product object.
+	 * @return int The Unix timestamp, or 0 when the sale has no end date.
+	 * @since 1.9
+	 */
+	private static function get_sale_end_timestamp( $product ) {
+		if ( $product instanceof WC_Product_Variable ) {
+			$timestamps = array();
+			foreach ( $product->get_visible_children() as $variation_id ) {
+				$variation = wc_get_product( $variation_id );
+				if ( $variation && $variation->is_on_sale() && $variation->get_date_on_sale_to() ) {
+					$timestamps[] = $variation->get_date_on_sale_to()->getTimestamp();
 				}
 			}
-			rsort( $sale_dates );
-			$sales_price_to = $sale_dates[0];
+
+			return $timestamps ? max( $timestamps ) : 0;
 		}
 
-		if ( is_single() && '' !== $sales_price_to ) {
-			$format = apply_filters( 'sale_date_format', get_option( 'date_format' ) );
-			$label  = apply_filters( 'sale_date_label', get_option( 'smntcs_sale_price_label', 'Discounted until' ) );
-			$date   = wp_date( $format, $sales_price_to );
+		$date_on_sale_to = $product->get_date_on_sale_to();
 
-			if ( $label ) {
-				return str_replace( '</ins>', '</ins> <small>(' . esc_html( $label ) . ' ' . esc_html( $date ) . ')</small>', $price );
-			} else {
-				return str_replace( '</ins>', '</ins> <small>(' . esc_html( $date ) . ')</small>', $price );
-			}
-		} else {
-			return apply_filters( 'woocommerce_product_get_price', $price );
-		}
+		return $date_on_sale_to ? $date_on_sale_to->getTimestamp() : 0;
 	}
 
 	/**
@@ -119,8 +154,6 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	 * @since 1.3.0
 	 */
 	public static function enhance_customizer( $wp_customize ) {
-		global $woocommerce;
-
 		// Return if WooCommerce hasn't been installed.
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
@@ -138,7 +171,7 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 		$wp_customize->add_setting(
 			'smntcs_sale_price_label',
 			array(
-				'default'           => 'Discounted until',
+				'default'           => __( 'Discounted until', 'smntcs-show-sale-price-date-for-woocommerce' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'type'              => 'option',
 			)
@@ -158,4 +191,4 @@ class SMNTCS_Show_Sale_Price_Date_For_WC {
 	}
 }
 
-SMNTCS_Show_Sale_Price_Date_for_WC::init();
+SMNTCS_Show_Sale_Price_Date_For_WC::init();

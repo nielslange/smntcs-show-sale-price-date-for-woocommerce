@@ -46,6 +46,16 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-show-sale-price-
 
 ## Changelog
 
+### 1.9 (2026.09.26)
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+- Test up to WooCommerce 11.1
+- Fix a fatal error with WooCommerce 11.1 in the product list, the REST API and the Cart and Checkout blocks
+- Stop showing a 1970 date for sales without an end date
+- Show the date only for the product the page is about, not for related products
+- Declare compatibility with High-Performance Order Storage and the Cart and Checkout blocks
+
 ### 1.8 (2024.12.31)
 
 - Test up to WordPress 6.7

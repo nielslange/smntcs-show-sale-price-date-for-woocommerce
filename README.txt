@@ -1,25 +1,27 @@
 === SMNTCS Show Sale Price Date for WooCommerce ===
 
-Contributors: 		  	nielslange
-Tags: 				  	WooCommerce Sale Price
-Stable tag:				1.8
-Tested up to: 		  	6.7
-Requires at least: 	  	5.3
-Requires PHP: 		  	5.6
-WC requires at least: 	3.0
-WC tested up to: 	  	7.1
-License: 			  	GPL v2 or later
-License URI: 		  	https://www.gnu.org/licenses/gpl-2.0.html
+Contributors:       nielslange
+Tags:               woocommerce, sale price, sale date, discount, product page
+Requires at least:  5.3
+Tested up to:       7.1
+Requires PHP:       7.4
+Stable tag:         1.9
+License:            GPL v2 or later
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
-Show WooCommerce sale prices date on shopping page.
+Shows the date a WooCommerce sale ends next to the sale price on the product page.
 
 == Description ==
 
-Show WooCommerce sale prices date on shopping page.
+SMNTCS Show Sale Price Date for WooCommerce tells your customers how long a sale lasts. When a product has a scheduled sale with an end date, the date appears next to the sale price on the product page, for example "(Discounted until 31 December 2026)".
+
+For variable products the latest end date of all variations on sale is shown. Products whose sale has no end date keep their normal price display.
+
+You can change the label in the Customizer under WooCommerce, then Show Sale Price Date.
 
 == Filter ==
 
-	// Adjust date format:
+// Adjust date format:
     add_filter( 'sale_date_format', 'my_custom_sale_date_format' );
     function my_custom_sale_date_format() {
         return 'r';
@@ -33,14 +35,24 @@ Show WooCommerce sale prices date on shopping page.
 
 == Contribute ==
 
-Contributions are always welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce) and create an issue or open a pull request.
+Contributions are always welcome. Simply head over to [GitHub](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce) and create an issue or open a pull request.
 
 == Installation ==
 
 1. Upload `smntcs-woocommerce-show-sale-price-date` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 
-== Change log ==
+== Changelog ==
+
+= 1.9 (2026.09.26) =
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+- Test up to WooCommerce 11.1
+- Fix a fatal error with WooCommerce 11.1 in the product list, the REST API and the Cart and Checkout blocks
+- Stop showing a 1970 date for sales without an end date
+- Show the date only for the product the page is about, not for related products
+- Declare compatibility with High-Performance Order Storage and the Cart and Checkout blocks
 
 = 1.8 (2024.12.31) =
 

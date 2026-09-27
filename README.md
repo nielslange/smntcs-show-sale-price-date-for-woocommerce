@@ -2,9 +2,9 @@
 
 ![Support Level](https://img.shields.io/badge/support-active-green.svg)
 ![Build Status](https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce/actions/workflows/test.yml/badge.svg)
-![GPLv3 License](https://img.shields.io/github/license/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)
-![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/wp-badge.svg)
-![Compatible to PHP version](https://plugintests.com/plugins/smntcs-show-sale-price-date-for-woocommerce/php-badge.svg)
+![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)
+![Compatible to WordPress version](https://img.shields.io/wordpress/plugin/tested/smntcs-show-sale-price-date-for-woocommerce.svg)
+![Compatible to PHP version](https://img.shields.io/wordpress/plugin/required-php/smntcs-show-sale-price-date-for-woocommerce.svg)
 ![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-show-sale-price-date-for-woocommerce.svg)
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-show-sale-price-date-for-woocommerce.svg)
 ![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-show-sale-price-date-for-woocommerce.svg)

@@ -5,7 +5,7 @@ Tags:               woocommerce, sale price, sale date, discount, product page
 Requires at least:  5.3
 Tested up to:       7.1
 Requires PHP:       7.4
-Stable tag:         1.9
+Stable tag:         2.0
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,19 +19,17 @@ For variable products the latest end date of all variations on sale is shown. Pr
 
 You can change the label in the Customizer under WooCommerce, then Show Sale Price Date.
 
-== Filter ==
+== Filters ==
 
-// Adjust date format:
-    add_filter( 'sale_date_format', 'my_custom_sale_date_format' );
-    function my_custom_sale_date_format() {
-        return 'r';
-    }
+Add these lines to your theme's functions.php file or a small plugin.
 
-	// Adjust label:
-    add_filter( 'sale_date_label', 'my_custom_sale_date_label' );
-    function my_custom_sale_date_label() {
-        return 'Valid until';
-    }
+Change the date format to any PHP date format:
+
+`add_filter( 'sale_date_format', function () { return 'j F Y'; } );`
+
+Change the label in code instead of the Customizer:
+
+`add_filter( 'sale_date_label', function () { return 'Valid until'; } );`
 
 == Contribute ==
 
@@ -43,6 +41,10 @@ Contributions are always welcome. Simply head over to [GitHub](https://github.co
 2. Activate the plugin through the `Plugins` menu in WordPress.
 
 == Changelog ==
+
+= 2.0 (2026.09.27) =
+
+- Fix the formatting of the filter examples in the readme
 
 = 1.9 (2026.09.26) =
 

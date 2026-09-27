@@ -4,7 +4,7 @@
  * Plugin URI:           https://github.com/nielslange/smntcs-show-sale-price-date-for-woocommerce
  * Description:          Shows the end date of a WooCommerce sale next to the sale price on the product page.
  * Text Domain:          smntcs-show-sale-price-date-for-woocommerce
- * Version:              1.9
+ * Version:              2.0
  * Requires at least:    5.3
  * Requires PHP:         7.4
  * Requires Plugins:     woocommerce
